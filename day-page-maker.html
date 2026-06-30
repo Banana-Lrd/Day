@@ -86,9 +86,11 @@
 
   /* ---------- preview (the notebook) ---------- */
   .book-wrap{display:flex;justify-content:center;}
-  .book{width:100%;max-width:1140px;display:flex;flex-wrap:wrap;gap:0;align-items:flex-start;justify-content:center;filter:drop-shadow(0 24px 36px rgba(0,0,0,0.55));}
-  .page{background:var(--paper);color:var(--ink);flex:0 0 340px;width:340px;height:740px;padding:24px 22px 28px;position:relative;overflow:hidden;box-shadow:inset 0 0 36px rgba(80,55,20,0.08);font-family:'Emilys Handwriting',cursive;}
-  .spine{width:12px;flex:0 0 12px;background:linear-gradient(to right,rgba(40,28,15,.32),rgba(40,28,15,.06) 45%,rgba(40,28,15,.06) 55%,rgba(40,28,15,.32));}
+  .book{width:100%;display:flex;flex-direction:column;align-items:center;gap:22px;filter:drop-shadow(0 18px 30px rgba(0,0,0,0.5));}
+  .page{background:var(--paper);color:var(--ink);width:min(94vw,470px);aspect-ratio:210/297;padding:22px 20px;position:relative;overflow:hidden;box-shadow:inset 0 0 36px rgba(80,55,20,0.08);font-family:'Emilys Handwriting',cursive;}
+  .spine{display:none;}
+  .cols{display:flex;gap:16px;}
+  .col{flex:1;min-width:0;}
   .hd{stroke:var(--ink);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;}
   .hd-thin{stroke:var(--ink);stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round;}
   .hd-fill{fill:var(--ink);stroke:none;}.hd-fill-rust{fill:var(--rust);stroke:none;}
@@ -136,32 +138,32 @@
   .timeline2{position:relative;padding-left:50px;}
   .timeline2::before{content:'';position:absolute;left:46px;top:6px;bottom:10px;width:2.5px;background:var(--ink);}
   .tl-seg{position:relative;padding:0 0 2px 16px;}
-  .tl-seg .tk{position:absolute;left:-50px;top:-6px;width:40px;text-align:right;color:var(--ink);font-size:15px;letter-spacing:.5px;}
+  .tl-seg .tk{position:absolute;left:-50px;top:-5px;width:40px;text-align:right;color:var(--ink);font-size:12.5px;letter-spacing:.5px;}
   .tl-seg::before{content:'';position:absolute;left:-4px;top:3px;width:14px;height:2.5px;background:var(--ink);}
-  .tl-seg .tx{font-size:15px;line-height:1.4;padding-top:1px;}
+  .tl-seg .tx{font-size:12.5px;line-height:1.35;padding-top:1px;}
   .rings-block{display:flex;align-items:center;gap:18px;}
   .legend{font-size:14px;}
   .legend-row{display:flex;align-items:center;gap:7px;margin-bottom:5px;color:var(--ink-faded);}
   .dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
-  .cheque-wrap{position:relative;margin:13px 8px;}
-  .cheque{position:relative;background:#F4EEDB;border:1.5px solid #BCA877;border-radius:4px;padding:9px 12px;overflow:hidden;box-shadow:0 5px 12px rgba(40,28,15,.22);}
+  .cheque-wrap{position:relative;max-width:88%;margin:9px auto;}
+  .cheque{position:relative;background:#F4EEDB;border:1.5px solid #BCA877;border-radius:4px;padding:7px 10px;overflow:hidden;box-shadow:0 4px 10px rgba(40,28,15,.2);}
   .cheque::before{content:'';position:absolute;inset:4px;border:1px dashed #C9B68C;border-radius:3px;pointer-events:none;}
   .chq-guilloche{position:absolute;inset:0;opacity:.09;pointer-events:none;background:repeating-linear-gradient(45deg,var(--ink) 0 1px,transparent 1px 7px),repeating-linear-gradient(-45deg,var(--ink) 0 1px,transparent 1px 7px);}
   .chq-top{display:flex;justify-content:space-between;align-items:baseline;position:relative;}
-  .chq-bank{font-size:15px;letter-spacing:.5px;}
-  .chq-no{font-family:'Courier New',monospace;font-size:11px;color:var(--ink-faded);}
-  .chq-sub{font-size:10px;color:var(--ink-faded);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px;position:relative;}
-  .chq-payrow{display:flex;align-items:center;gap:8px;position:relative;}
-  .chq-pay-lbl{font-size:8.5px;line-height:1.15;color:var(--ink-faded);text-transform:uppercase;letter-spacing:.04em;max-width:78px;}
-  .chq-pay-name{flex:1;font-size:17px;border-bottom:1.5px dotted var(--ink-faded);padding:0 4px 1px;min-width:0;}
-  .chq-amtrow{margin-top:7px;position:relative;}
-  .chq-amt-box{display:inline-block;font-size:15px;border:1.5px solid var(--ink-faded);border-radius:3px;padding:2px 8px;}
-  .chq-foot{display:flex;justify-content:space-between;align-items:flex-end;margin-top:7px;position:relative;}
-  .chq-micr{font-family:'Courier New',monospace;font-size:11px;color:var(--ink-faded);letter-spacing:1.5px;}
-  .chq-sign{font-size:13px;color:var(--ink-faded);border-top:1px solid var(--ink-faded);padding-top:1px;min-width:74px;text-align:center;}
-  .stamp{position:absolute;right:16px;top:30px;transform:rotate(-13deg);border:2.5px double currentColor;border-radius:6px;padding:3px 10px;text-align:center;opacity:.85;font-family:'Segoe UI',Arial,sans-serif;line-height:1;z-index:1;}
-  .stamp b{display:block;font-size:12.5px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;white-space:nowrap;}
-  .stamp small{display:block;font-size:9.5px;margin-top:2px;text-transform:uppercase;letter-spacing:.4px;}
+  .chq-bank{font-size:13px;letter-spacing:.4px;}
+  .chq-no{font-family:'Courier New',monospace;font-size:9.5px;color:var(--ink-faded);}
+  .chq-sub{font-size:8.5px;color:var(--ink-faded);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;position:relative;}
+  .chq-payrow{display:flex;align-items:center;gap:6px;position:relative;}
+  .chq-pay-lbl{font-size:7px;line-height:1.15;color:var(--ink-faded);text-transform:uppercase;letter-spacing:.04em;max-width:70px;}
+  .chq-pay-name{flex:1;font-size:14px;border-bottom:1.5px dotted var(--ink-faded);padding:0 4px 1px;min-width:0;}
+  .chq-amtrow{margin-top:5px;position:relative;}
+  .chq-amt-box{display:inline-block;font-size:12.5px;border:1.5px solid var(--ink-faded);border-radius:3px;padding:1px 6px;}
+  .chq-foot{display:flex;justify-content:space-between;align-items:flex-end;margin-top:5px;position:relative;}
+  .chq-micr{font-family:'Courier New',monospace;font-size:9.5px;color:var(--ink-faded);letter-spacing:1px;}
+  .chq-sign{font-size:11px;color:var(--ink-faded);border-top:1px solid var(--ink-faded);padding-top:1px;min-width:60px;text-align:center;}
+  .stamp{position:absolute;right:12px;top:22px;transform:rotate(-13deg);border:2.5px double currentColor;border-radius:6px;padding:2px 8px;text-align:center;opacity:.85;font-family:'Segoe UI',Arial,sans-serif;line-height:1;z-index:1;}
+  .stamp b{display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap;}
+  .stamp small{display:block;font-size:8px;margin-top:1px;text-transform:uppercase;letter-spacing:.3px;}
   .stamp.ok{color:#3E7D4F;}
   .stamp.bad{color:#C0392B;}
   .tape.cq-tr{width:60px;height:20px;top:-9px;right:-14px;transform:rotate(40deg);z-index:3;}
@@ -193,9 +195,9 @@
     #previewView{display:block!important;}
     .wrap{padding:0;max-width:none;}
     .book-wrap{display:block;}
-    .book{display:block;filter:none;max-width:none;}
+    .book{display:block;filter:none;gap:0;}
     .spine{display:none;}
-    .page{box-shadow:none;break-after:page;page-break-after:always;zoom:1.48;margin:0 auto;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .page{width:210mm;height:297mm;aspect-ratio:auto;padding:14mm 12mm;margin:0;box-shadow:none;break-after:page;page-break-after:always;overflow:hidden;}
     .page:last-child{break-after:auto;}
   }
 </style>
@@ -533,7 +535,7 @@ function goalRatio(g){let val,goal;if(g.kind==='sleep'){val=durMin(fmtTime(g.bed
 function ringSVG(list){let inner='';list.slice(0,4).forEach((g,i)=>{const r=RINGR[i];const C=2*Math.PI*r;const frac=Math.max(0,Math.min(1,goalRatio(g)||0));inner+=`<circle cx="60" cy="60" r="${r}" fill="none" stroke="#D8C7A0" stroke-width="9"/>`;inner+=`<circle cx="60" cy="60" r="${r}" fill="none" stroke="${g.color}" stroke-width="9" stroke-linecap="round" stroke-dasharray="${C.toFixed(2)}" stroke-dashoffset="${(C*(1-frac)).toFixed(2)}" transform="rotate(-90 60 60)"/>`;});return `<svg width="100" height="100" viewBox="0 0 120 120">${inner}</svg>`;}
 function goalLegend(list){return list.slice(0,4).map(g=>{let val,goal;if(g.kind==='sleep'){val=fmtDur(durMin(fmtTime(g.bed),fmtTime(g.wake)));goal=(g.targetH||8)+'h';}else if(g.kind==='min'){val=(g.value||0);goal=(g.target||0)+' min';}else{val=(g.value||0);goal=(g.target||0);}return `<div class="legend-row"><span class="dot" style="background:${g.color}"></span> ${esc(g.label||'—')} — ${val} / ${goal}</div>`;}).join('');}
 function chequeHTML(g,idx){
-  const capNum=g.target||0;const unit=g.kind==='min'?' min':'';const val=g.value||0;
+  const capNum=g.target||0;const unit=g.theme==='sugar'?' g':(g.kind==='min'?' min':'');const val=g.value||0;
   const over=val>capNum;const diff=Math.abs(val-capNum);
   const theme=g.theme||'generic';
   const T=theme==='sugar'?{bank:'THE SUGAR BANK',sub:'daily sugar allowance',pay:'indulged in',over:'overdrawn',sign:'sweet tooth'}
@@ -553,10 +555,10 @@ function chequeHTML(g,idx){
     ${stamp}</div>${tapes}</div>`;
 }
 function goalsSection(){const reach=day.goals.filter(g=>g.dir!=='limit').slice(0,4);const limits=day.goals.filter(g=>g.dir==='limit');let out='';if(reach.length)out+=`<div class="rings-block">${ringSVG(reach)}<div class="legend">${goalLegend(reach)}</div></div>`;out+=limits.map(chequeHTML).join('');if(!reach.length&&!limits.length)out='<div class="consume-none">no goals set</div>';return out;}
-function consumeCol(title,group,list){
+function consumeGroup(title,group,list){
   let icons='';let total=0;
   list.forEach(([id])=>{const n=day[group][id]||0;if(!n)return;total+=n;const rn=n>=2?`<span class="rn">${toRoman(n)}</span>`:'';icons+=`<span class="cu">${svg(id)}${rn}</span>`;});
-  return `<div class="sd-col"><div class="consume-title">${title} · ${total}</div>
+  return `<div class="consume-group"><div class="consume-title">${title} · ${total}</div>
     <div class="consume-icons">${total?icons:'<span class="consume-none">none</span>'}</div></div>`;
 }
 function chipRow(group,list){
@@ -590,33 +592,45 @@ function render(){
   const moodIcon=MOODS[(day.mood||3)-1];
   const photo=day.photo?`<img src="${day.photo}">`:'photo';
   const capHTML=`<div class="cap">${esc(day.caption||'')}</div>`;
+  const reach=day.goals.filter(g=>g.dir!=='limit');
+  const limits=day.goals.filter(g=>g.dir==='limit');
+  const ringsHTML=reach.length?`<div class="rings-block">${ringSVG(reach)}<div class="legend">${goalLegend(reach)}</div></div>`:'<div class="consume-none">no ring goals</div>';
+  const chequesHTML=limits.length?(`<div class="section-label">Limits</div>`+limits.map((g,i)=>chequeHTML(g,i)).join('')):'';
   const book=`
   <div class="page">
     <div class="header"><svg class="avatar"><use href="#sprout"/></svg><div class="date">${longDate(day.date)}</div></div>
-    <div class="polaroid"><div class="tape pl"></div><div class="pic">${photo}</div>${capHTML}</div>
-    <p class="day-desc">${esc(day.desc)||'<span class="consume-none">…</span>'}</p>
-    <div class="mood-line">${svg(moodIcon[0])} Mood — ${day.mood} / 5 · ${moodIcon[1]}</div>
+    <div class="cols">
+      <div class="col"><div class="polaroid"><div class="tape pl"></div><div class="pic">${photo}</div>${capHTML}</div></div>
+      <div class="col">
+        <p class="day-desc">${esc(day.desc)||'<span class="consume-none">…</span>'}</p>
+        <div class="mood-line">${svg(moodIcon[0])} Mood — ${day.mood} / 5 · ${moodIcon[1]}</div>
+      </div>
+    </div>
     <div class="pg-tag">1 / 3</div>
   </div>
-  <div class="spine"></div>
   <div class="page">
-    <div class="section-label">Money</div>${moneyReceipt()}
-    <div class="section-label">Snacks &amp; drinks</div>
-    <div class="sd-row">${consumeCol('Drinks','drinks',DRINKS)}<div class="sd-div"></div>${consumeCol('Snacks','snacks',SNACKS)}</div>
-    <div class="section-label">Productivity</div>${chipRow('prod',PROD)}
-    <div class="section-label">Exercise</div>${chipRow('ex',EX)}
+    <div class="cols">
+      <div class="col"><div class="section-label">Money</div>${moneyReceipt()}</div>
+      <div class="col">
+        <div class="section-label">Snacks &amp; drinks</div>
+        ${consumeGroup('Drinks','drinks',DRINKS)}
+        ${consumeGroup('Snacks','snacks',SNACKS)}
+        <div class="section-label">Productivity</div>${chipRow('prod',PROD)}
+        <div class="section-label">Exercise</div>${chipRow('ex',EX)}
+      </div>
+    </div>
     <div class="pg-tag">2 / 3</div>
   </div>
-  <div class="spine"></div>
   <div class="page">
-    <div class="section-label">Timeline</div>${tlPreview()}
-    <div class="section-label">Goals</div>
-    ${goalsSection()}
+    <div class="cols">
+      <div class="col"><div class="section-label">Timeline</div>${tlPreview()}</div>
+      <div class="col"><div class="section-label">Goals</div>${ringsHTML}</div>
+    </div>
+    ${chequesHTML}
     <div class="pg-tag">3 / 3</div>
   </div>`;
   $('book').innerHTML=book;
 }
-
 /* ---------------- tabs / io ---------------- */
 function showTab(t){
   const e=t==='edit';
